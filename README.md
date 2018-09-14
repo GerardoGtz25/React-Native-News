@@ -1,2 +1,11 @@
 # reac-native-news
-An application to get news from many source from all around the world
+Aplicación para obtener noticias de distintas fuentes
+
+__Es necesario instalar expo__
+
+## Instalación
+
+```
+npm install
+exp start
+```
