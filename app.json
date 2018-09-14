@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "news2",
+    "name": "news",
     "description": "This project is really great.",
-    "slug": "news2",
+    "slug": "news",
     "privacy": "public",
     "sdkVersion": "29.0.0",
     "platforms": ["ios", "android"],
@@ -10,7 +10,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

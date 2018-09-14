@@ -17,12 +17,6 @@ class SearchNews extends Component {
     text: ''
   }
 
-  static navigationOptions = () => {
-    return {
-      header: Header
-    }
-  }
-
   handleSubmit = async () => {
 
     const newsList = await API.getByNewsByTopic(this.state.text);
@@ -52,7 +46,7 @@ class SearchNews extends Component {
       <View>
         <Image
           style={styles.image}
-          source={require('../../../assets/logo.png')}
+          source={require('../../../assets/icon.png')}
         />
         <TextInput
           placeholder="Ingresa una palabra"
@@ -71,11 +65,16 @@ class SearchNews extends Component {
 
 const styles = StyleSheet.create({
   input: {
-    padding: 15,
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 2,
+    borderRadius: 6,
+    paddingHorizontal: 5,
+    paddingVertical: 5,
+    width: '95%',
+    marginHorizontal: 10,
+    marginVertical: 10,
     fontSize: 15,
-    borderWidth: 1,
-    borderColor: '#eaeaea',
-    marginVertical: 25
   },
   image: {
     resizeMode: 'contain',

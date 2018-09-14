@@ -7,11 +7,13 @@ function GenericButton (props){
       onPress={props.onPress}
       style={{
         alignItems: 'center',
-        height: 50,
-        marginTop: 10,
+        height: 45,
+        marginTop: 25,
+        marginHorizontal: 15,
         backgroundColor: props.color,
         padding: 5,
-        borderRadius: 10
+        borderRadius: 10,
+        width: '90%'
     }}>
       <Text style={styles.text}>{props.title.toUpperCase()}</Text>
     </TouchableOpacity>

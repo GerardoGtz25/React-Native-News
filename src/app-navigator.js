@@ -1,50 +1,68 @@
 import {
   createStackNavigator,
-  createBottomTabNavigator
+  createMaterialTopTabNavigator
 } from 'react-navigation';
 import React from 'react';
+import Login from './screens/containers/login';
 import Home from './screens/containers/home';
-import Header from './sections/components/header';
 import NewsList from './screens/containers/news-list';
 import SearchNews from './screens/containers/search-news';
+
+import Header from './sections/components/header';
 import Icon from './sections/components/icon';
 
 const Main = createStackNavigator(
   {
-    Home,
+    Login,
     NewsList,
   },
   {
-    navigationOptions: {
-      header: Header
-    },
+    initialRouteName: "Login",
+    headerMode: 'none',
     cardStyle: {
       backgroundColor: 'white'
     }
   }
 )
 
-const TabNavigator = createBottomTabNavigator(
+const TabNavigator = createMaterialTopTabNavigator(
   {
-    Home: {
+    Login: {
       screen: Main,
       navigationOptions: {
-        title: 'Inicio',
-        tabBarIcon: <Icon icon="🏠"/>,
+        title: 'Login',
+      }
+    },
+    Home: {
+      screen: Home,
+      navigationOptions: {
+        title: 'Home',
       }
     },
     SearchNews: {
       screen: SearchNews,
       navigationOptions: {
-        title: 'Search News',
-        tabBarIcon: <Icon icon="🔍"/>,
+        title: 'Search',
       }
-    }
+    },
+    NewsList: {
+        screen: NewsList,
+        navigationOptions: {
+          title: 'News',
+        }
+      }
   },
   {
     tabBarOptions: {
-      activeTintColor: 'white',
-      activeBackgroundColor: '#685be4'
+      labelStyle: {
+        fontSize: 15,
+      },
+      style: {
+        paddingTop: 20
+      },
+      indicatorStyle: {
+        backgroundColor: 'white'
+      },
     }
   }
 )

@@ -13,7 +13,7 @@ import Empty from '../components/empty';
 
 class NewsList  extends Component {
   keyExtractor = (item, index) => index.toString();
-  renderEmpty = () => <Empty text="No hay noticias" />
+  renderEmpty = () => <Empty text="No hay noticias selecione una categoria en Home" />
   renderItem = ({item}) => {
 
       return (
