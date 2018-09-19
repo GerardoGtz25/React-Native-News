@@ -1,38 +1,35 @@
 import {
   createStackNavigator,
-  createMaterialTopTabNavigator
+  createMaterialTopTabNavigator,
+  createSwitchNavigator
 } from 'react-navigation';
+
 import React from 'react';
 import Login from './screens/containers/login';
+import Logout from './screens/containers/logout';
 import Home from './screens/containers/home';
 import NewsList from './screens/containers/news-list';
 import SearchNews from './screens/containers/search-news';
-
+import MyWebView from './screens/containers/web-view';
 import Header from './sections/components/header';
 import Icon from './sections/components/icon';
 
 const Main = createStackNavigator(
   {
     Login,
-    NewsList,
+    MyWebView
   },
   {
     initialRouteName: "Login",
-    headerMode: 'none',
+    headerMode: 'screen',
     cardStyle: {
       backgroundColor: 'white'
-    }
+    },
   }
 )
 
-const TabNavigator = createMaterialTopTabNavigator(
+const Navigation = createMaterialTopTabNavigator(
   {
-    Login: {
-      screen: Main,
-      navigationOptions: {
-        title: 'Login',
-      }
-    },
     Home: {
       screen: Home,
       navigationOptions: {
@@ -50,7 +47,13 @@ const TabNavigator = createMaterialTopTabNavigator(
         navigationOptions: {
           title: 'News',
         }
+      },
+    Logout: {
+      screen: Logout,
+      navigationOptions: {
+        title: 'Close',
       }
+    }
   },
   {
     tabBarOptions: {
@@ -67,4 +70,13 @@ const TabNavigator = createMaterialTopTabNavigator(
   }
 )
 
-export default TabNavigator;
+const SwitchNavigator = createSwitchNavigator(
+  {
+    Main,
+    Navigation,
+  },
+  {
+    initialRouteName: 'Main',
+  }
+)
+export default SwitchNavigator;

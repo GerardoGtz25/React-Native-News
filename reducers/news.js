@@ -3,6 +3,9 @@ function news(state = {}, action) {
     case 'SET_NEWS_LIST': {
       return {...state, ...action.payload}
     }
+    case 'SET_WEBVIEW': {
+      return {...state, ...action.payload}
+    }
     default:
       return state
   }

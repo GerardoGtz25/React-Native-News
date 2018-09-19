@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -7,23 +7,41 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-function NewsBox(props) {
-  return (
-    <TouchableOpacity
-      onPress={props.onPress}
-      >
-      <View style={styles.container}>
-        <Image
-          style={styles.newsImage}
-          source={{uri: props.urlToImage}}
-          />
-        <View style={styles.containerDescription}>
-          <Text style={styles.textTitle}>{props.title}</Text>
-          <Text style={styles.textDescription}>{props.description}</Text>
-        </View>
-      </View>
-    </TouchableOpacity>
-  )
+class NewsBox extends Component {
+
+   imageWithoutUrl(url){
+     if (url === null) {
+       return (
+         <Image
+           style={styles.newsImage}
+           source={require('../../../assets/icon.png')}
+           />
+       )
+     } else {
+       return (
+         <Image
+           style={styles.newsImage}
+           source={{uri: url}}
+           />
+       )
+     }
+   }
+
+   render() {
+     return (
+       <TouchableOpacity
+         onPress={this.props.onPress}
+         >
+         <View style={styles.container}>
+           {this.imageWithoutUrl(this.props.urlToImage)}
+           <View style={styles.containerDescription}>
+             <Text style={styles.textTitle}>{this.props.title}</Text>
+             <Text style={styles.textDescription}>{this.props.description}</Text>
+           </View>
+         </View>
+       </TouchableOpacity>
+     )
+  }
 }
 
 const styles = StyleSheet.create({

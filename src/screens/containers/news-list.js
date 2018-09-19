@@ -9,19 +9,36 @@ import {
 import { connect } from 'react-redux';
 import NewsBox from '../../sections/components/news-box';
 import Empty from '../components/empty';
+import { NavigationActions } from 'react-navigation';
 
 
 class NewsList  extends Component {
+
   keyExtractor = (item, index) => index.toString();
   renderEmpty = () => <Empty text="No hay noticias selecione una categoria en Home" />
-  renderItem = ({item}) => {
 
-      return (
-        <NewsBox
-          {...item}
-        />
-      )
-    }
+  renderItem = ({item}) => {
+    return (
+      <NewsBox
+        {...item}
+        onPress={()=> { this.viewWeb(item) }}
+      />
+    )
+  }
+
+  viewWeb = (item) => {
+    this.props.dispatch(
+      NavigationActions.navigate({
+        routeName: 'MyWebView'
+      })
+    )
+    this.props.dispatch({
+      type: 'SET_WEBVIEW',
+      payload: {
+        urlToImage: item.url
+      }
+    })
+  }
 
   render(){
     return(
